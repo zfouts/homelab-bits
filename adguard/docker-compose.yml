@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  adguard:
+    restart: always
+    image: adguard/adguardhome:latest
+    container_name: adguard
+    ports:
+      - 192.88.99.53:53:53/tcp
+      - 192.88.99.53:53:53/udp
+      - 192.88.99.53:80:80/tcp
+      - 192.88.99.53:853:80/tcp
+      - 192.88.99.53:443:443/tcp
+      - 192.88.99.53:3000:3000/tcp
+
+    volumes:
+      - '/data/adguard/workdir:/opt/adguardhome/work'
+      - '/data/adguard/confdir:/opt/adguardhome/conf'
+
